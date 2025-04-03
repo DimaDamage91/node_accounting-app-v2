@@ -105,15 +105,7 @@ function createServer() {
   app.post('/expenses', async (req, res) => {
     const { userId, spentAt, title, amount, category, note } = req.body;
 
-    if (
-      typeof userId !== 'number' ||
-      !Number.isIntiger(userId) ||
-      typeof spentAt !== 'string' ||
-      typeof title !== 'string' ||
-      typeof amount !== 'number' ||
-      !Number.isInteger(amount) ||
-      typeof category !== 'string'
-    ) {
+    if (!Number.isIntiger(userId) || !Number.isInteger(amount)) {
       res.sendStatus(400);
 
       return;
