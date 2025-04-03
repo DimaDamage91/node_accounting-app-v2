@@ -107,7 +107,7 @@ function createServer() {
 
     if (
       typeof userId !== 'number' ||
-      isNaN(userId) ||
+      Number.isIntiger(userId) ||
       typeof spentAt !== 'string' ||
       !spentAt.trim() ||
       typeof title !== 'string' ||
@@ -115,9 +115,7 @@ function createServer() {
       typeof amount !== 'number' ||
       isNaN(amount) ||
       typeof category !== 'string' ||
-      !category.trim() ||
-      typeof note !== 'string' ||
-      !note.trim()
+      !category.trim()
     ) {
       res.sendStatus(400);
 
@@ -167,7 +165,7 @@ function createServer() {
       (title && typeof title !== 'string') ||
       (amount && typeof amount !== 'number') ||
       (category && typeof category !== 'string') ||
-      (category && typeof note !== 'string')
+      (note && typeof note !== 'string')
     ) {
       res.sendStatus(400);
 
