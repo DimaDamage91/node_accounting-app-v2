@@ -107,15 +107,12 @@ function createServer() {
 
     if (
       typeof userId !== 'number' ||
-      Number.isIntiger(userId) ||
+      !Number.isIntiger(userId) ||
       typeof spentAt !== 'string' ||
-      !spentAt.trim() ||
       typeof title !== 'string' ||
-      !title.trim() ||
       typeof amount !== 'number' ||
-      isNaN(amount) ||
-      typeof category !== 'string' ||
-      !category.trim()
+      !Number.isInteger(amount) ||
+      typeof category !== 'string'
     ) {
       res.sendStatus(400);
 
